@@ -65,11 +65,11 @@ jobs:
       - name: Pack
         run: dotnet pack JameJam.slnx --nologo --no-build -c Release -o artifacts
 
-      - name: NuGet login (Trusted Publishing)
-        id: nuget-login
+      - name: NuGet login (OIDC → temp API key)
         uses: NuGet/login@v1
+        id: login
         with:
-          user: mahdi.ebrp
+          user: ${{ secrets.NUGET_USER }}   # add this secret in repo Settings → Secrets → Actions
 
-      - name: Push to NuGet.org
-        run: dotnet nuget push "artifacts/*.nupkg" --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json
+      - name: NuGet push
+        run: dotnet nuget push "artifacts/*.nupkg" --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
