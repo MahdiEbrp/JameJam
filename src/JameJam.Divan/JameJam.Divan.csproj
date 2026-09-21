@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>AI pad: notebooks, markdown notes, wiki-links, FTS search, checklists, daily journal.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Versions are managed centrally in Directory.Packages.props. -->
+    <PackageReference Include="Microsoft.Data.Sqlite" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JameJam.Data\JameJam.Data.csproj" />
+    <ProjectReference Include="..\JameJam.Sync\JameJam.Sync.csproj" />
+    <ProjectReference Include="..\JameJam.Settings\JameJam.Settings.csproj" />
+    <ProjectReference Include="..\JameJam.Soroush\JameJam.Soroush.csproj" />
+  </ItemGroup>
+</Project>

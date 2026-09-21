@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>All toolbox settings persisted safely in SQLite.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JameJam.Data\JameJam.Data.csproj" />
+  </ItemGroup>
+</Project>

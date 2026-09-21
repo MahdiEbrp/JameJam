@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Professional weather: forecasts, hourly, alerts, best-day ranking, task-aware plans.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JameJam.Soroush\JameJam.Soroush.csproj" />
+    <ProjectReference Include="..\JameJam.HaftKhan\JameJam.HaftKhan.csproj" />
+  </ItemGroup>
+</Project>

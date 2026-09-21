@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>JameJam</RootNamespace>
+    <AssemblyName>JameJam</AssemblyName>
+    <Description>JameJam toolbox — the console app that wires every service together (packaged as a dotnet tool).</Description>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>JameJam</ToolCommandName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JameJam.Text\JameJam.Text.csproj" />
+    <ProjectReference Include="..\JameJam.Data\JameJam.Data.csproj" />
+    <ProjectReference Include="..\JameJam.Soroush\JameJam.Soroush.csproj" />
+    <ProjectReference Include="..\JameJam.Settings\JameJam.Settings.csproj" />
+    <ProjectReference Include="..\JameJam.Toolbox\JameJam.Toolbox.csproj" />
+    <ProjectReference Include="..\JameJam.Anahita\JameJam.Anahita.csproj" />
+    <ProjectReference Include="..\JameJam.HaftKhan\JameJam.HaftKhan.csproj" />
+    <ProjectReference Include="..\JameJam.Ganjoor\JameJam.Ganjoor.csproj" />
+    <ProjectReference Include="..\JameJam.Raz\JameJam.Raz.csproj" />
+    <ProjectReference Include="..\JameJam.Divan\JameJam.Divan.csproj" />
+    <ProjectReference Include="..\JameJam.Taqvim\JameJam.Taqvim.csproj" />
+  </ItemGroup>
+
+</Project>

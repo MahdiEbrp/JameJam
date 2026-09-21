@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Shared SQLite plumbing: safe defaults, WAL, permissions, single-init.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Versions are managed centrally in Directory.Packages.props. -->
+    <PackageReference Include="Microsoft.Data.Sqlite" />
+  </ItemGroup>
+
+</Project>

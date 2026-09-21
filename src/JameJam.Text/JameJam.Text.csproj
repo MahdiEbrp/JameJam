@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Shared text safety: the vectorized sanitizer and text guards.</Description>
+  </PropertyGroup>
+</Project>

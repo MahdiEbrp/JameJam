@@ -1,0 +1,23 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/JameJam.Text/JameJam.Text.csproj" />
+    <Project Path="src/JameJam.Data/JameJam.Data.csproj" />
+    <Project Path="src/JameJam.Soroush/JameJam.Soroush.csproj" />
+    <Project Path="src/JameJam.Settings/JameJam.Settings.csproj" />
+    <Project Path="src/JameJam.Toolbox/JameJam.Toolbox.csproj" />
+    <Project Path="src/JameJam.Anahita/JameJam.Anahita.csproj" />
+    <Project Path="src/JameJam.HaftKhan/JameJam.HaftKhan.csproj" />
+    <Project Path="src/JameJam.Ganjoor/JameJam.Ganjoor.csproj" />
+    <Project Path="src/JameJam.Raz/JameJam.Raz.csproj" />
+    <Project Path="src/JameJam.Divan/JameJam.Divan.csproj" />
+    <Project Path="src/JameJam.Taqvim/JameJam.Taqvim.csproj" />
+    <Project Path="src/JameJam.Sync/JameJam.Sync.csproj" />
+    <Project Path="src/JameJam.Cli/JameJam.Cli.csproj" />
+  </Folder>
+  <Folder Name="/bench/">
+    <Project Path="bench/JameJam.Bench/JameJam.Bench.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/JameJam.Tests/JameJam.Tests.csproj" />
+  </Folder>
+</Solution>

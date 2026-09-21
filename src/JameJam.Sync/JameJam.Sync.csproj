@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Server-agnostic device sync: sealed envelopes with checksums, a hardened HTTP transport, and last-write-wins merge engines. Works with any server that can GET/PUT a JSON blob.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JameJam.Soroush\JameJam.Soroush.csproj" />
+  </ItemGroup>
+
+</Project>

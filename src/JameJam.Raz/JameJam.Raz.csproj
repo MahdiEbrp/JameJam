@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Encrypted vault: passwords, TOTP, audits, backups — an AI coach that cannot leak secrets.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Versions are managed centrally in Directory.Packages.props. -->
+    <PackageReference Include="Microsoft.Data.Sqlite" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JameJam.Data\JameJam.Data.csproj" />
+    <ProjectReference Include="..\JameJam.Soroush\JameJam.Soroush.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,39 @@
+<Project>
+  <!-- Shared clean-code defaults for every project in this repo. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <!-- Latest C# -->
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Cleanest-code enforcement: warnings fail the build -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisMode>Recommended</AnalysisMode>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+    <!-- Reproducible builds on CI -->
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <!-- NuGet packaging defaults: every src/* library is a packable, signed-metadata package. -->
+  <PropertyGroup>
+    <Version>0.3.0</Version>
+    <Authors>JameJam</Authors>
+    <PackageProjectUrl>https://github.com/jamejam-toolbox/jamejam</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jamejam-toolbox/jamejam.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageTags>jamejam;dotnet;cli;privacy;local-first</PackageTags>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <!-- Tests run against the internals of every package. -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="JameJam.Tests" />
+  </ItemGroup>
+</Project>

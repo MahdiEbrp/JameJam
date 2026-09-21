@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>JameJam.Bench</RootNamespace>
+    <Description>Stress harness for the JameJam packages: scale, sync, concurrency, crypto, AI funnel. Not published.</Description>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\JameJam.Divan\JameJam.Divan.csproj" />
+    <ProjectReference Include="..\..\src\JameJam.Raz\JameJam.Raz.csproj" />
+    <ProjectReference Include="..\..\src\JameJam.Soroush\JameJam.Soroush.csproj" />
+    <ProjectReference Include="..\..\src\JameJam.Sync\JameJam.Sync.csproj" />
+    <ProjectReference Include="..\..\src\JameJam.Text\JameJam.Text.csproj" />
+  </ItemGroup>
+
+</Project>

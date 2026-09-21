@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>To-do list (Rostam's Seven Labours) with AI-assisted planning and remote backup sync.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Versions are managed centrally in Directory.Packages.props. -->
+    <PackageReference Include="Microsoft.Data.Sqlite" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JameJam.Data\JameJam.Data.csproj" />
+    <ProjectReference Include="..\JameJam.Sync\JameJam.Sync.csproj" />
+    <ProjectReference Include="..\JameJam.Soroush\JameJam.Soroush.csproj" />
+    <ProjectReference Include="..\JameJam.Text\JameJam.Text.csproj" />
+  </ItemGroup>
+</Project>

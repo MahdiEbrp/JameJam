@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Personal wallet: multi-currency accounts, budgets, bills, goals, debts, reports.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Versions are managed centrally in Directory.Packages.props. -->
+    <PackageReference Include="Microsoft.Data.Sqlite" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JameJam.Data\JameJam.Data.csproj" />
+    <ProjectReference Include="..\JameJam.Soroush\JameJam.Soroush.csproj" />
+    <ProjectReference Include="..\JameJam.Text\JameJam.Text.csproj" />
+  </ItemGroup>
+</Project>

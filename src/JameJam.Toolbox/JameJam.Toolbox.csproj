@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Small friendly tools: the greeter (local and AI-crafted).</Description>
+  </PropertyGroup>
+</Project>
