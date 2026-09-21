@@ -112,7 +112,7 @@ public sealed class SqliteTaqvimStore : ITaqvimStore
                     try
                     {
                         return QueryList(connection, """
-                            SELECT id FROM event_fts WHERE event_fts MATCH $q ORDER BY rank LIMIT $limit
+                            SELECT rowid FROM event_fts WHERE event_fts MATCH $q ORDER BY rank LIMIT $limit
                             """, reader => reader.GetInt64(0), Param("$q", FtsQuery(query)), Param("$limit", limit));
                     }
                     catch (SqliteException)
@@ -306,7 +306,7 @@ public sealed class SqliteTaqvimStore : ITaqvimStore
         return string.Join(' ', terms.Select(t => $"\"{t.Replace("\"", "\"\"")}\""));
     }
 
-    private static string EscapeLike(string text) => text.Replace("[", "[[", StringComparison.Ordinal).Replace("%", "[%]", StringComparison.Ordinal).Replace("_", "[_]", StringComparison.Ordinal);
+    private static string EscapeLike(string text) => text.Replace("[", "[[", StringComparison.Ordinal).Replace("%", "[%", StringComparison.Ordinal).Replace("_", "[_", StringComparison.Ordinal);
 
     // ── Mapping ──
 

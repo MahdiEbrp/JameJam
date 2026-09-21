@@ -193,7 +193,7 @@ public sealed class SqliteDivanStore : IDivanStore
         }
 
         var terms = query.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-        var conditions = string.Join(" AND ", terms.Select((_, i) => $"(title LIKE $t{i} OR body LIKE $t{i})"));
+        var conditions = string.Join(" AND ", terms.Select((_, i) => $"(title LIKE $t{i} ESCAPE '[' OR body LIKE $t{i} ESCAPE '[')"));
         var sql = $"{SelectNotes} WHERE {conditions} ORDER BY id LIMIT $limit";
         return WithRead(connection =>
             QueryList(connection, sql, reader => reader.GetInt64(0),
@@ -405,7 +405,7 @@ public sealed class SqliteDivanStore : IDivanStore
         return string.Join(' ', terms.Select(t => $"\"{t.Replace("\"", "\"\"")}\""));
     }
 
-    private static string EscapeLike(string text) => text.Replace("[", "[]").Replace("%", "[%]").Replace("_", "[_]");
+    private static string EscapeLike(string text) => text.Replace("[", "[[", StringComparison.Ordinal).Replace("%", "[%", StringComparison.Ordinal).Replace("_", "[_", StringComparison.Ordinal);
 
     private const string SelectNotes =
         "SELECT id, notebook_id, title, body, tags, pinned, archived, created_at, updated_at, sync_id FROM notes";
