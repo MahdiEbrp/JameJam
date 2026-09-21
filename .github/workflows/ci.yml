@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+    tags: [ 'v*.*.*' ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore JameJam.slnx
+
+      - name: Build (warnings as errors)
+        run: dotnet build JameJam.slnx --nologo --no-restore -c Release
+
+      - name: Test
+        run: dotnet test JameJam.slnx --nologo --no-build -c Release
+
+      - name: Pack
+        run: dotnet pack JameJam.slnx --nologo --no-build -c Release -o artifacts
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts/*.nupkg
+
+  publish:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    environment: production   # optional — remove this line if you didn't set up a GitHub Environment
+    permissions:
+      id-token: write         # required for NuGet Trusted Publishing (OIDC)
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore JameJam.slnx
+
+      - name: Build (warnings as errors)
+        run: dotnet build JameJam.slnx --nologo --no-restore -c Release
+
+      - name: Pack
+        run: dotnet pack JameJam.slnx --nologo --no-build -c Release -o artifacts
+
+      - name: NuGet login (Trusted Publishing)
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: mahdi.ebrp
+
+      - name: Push to NuGet.org
+        run: dotnet nuget push "artifacts/*.nupkg" --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json
